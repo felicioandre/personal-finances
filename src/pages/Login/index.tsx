@@ -8,6 +8,9 @@ import {
   Input,
   Button,
   VStack,
+  Center,
+  Box,
+  Text,
 } from "@chakra-ui/react";
 
 function Login() {
@@ -21,34 +24,45 @@ function Login() {
   };
 
   return (
-    <Container>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <VStack spacing={4}>
-          <FormControl>
-            <FormLabel htmlFor="email">E-mail</FormLabel>
-            <Input
-              id="email"
-              type="email"
-              value={email}
-              onChange={(evt) => setEmail(evt.target.value)}
-            />
-          </FormControl>
+    <Center height={"100vh"}>
+      <Container>
+        <Box
+          border={"1px"}
+          borderColor="#ddd"
+          padding={"2rem"}
+          borderRadius="lg"
+        >
+          <form onSubmit={handleSubmit}>
+            <VStack spacing={"1rem"}>
+              <Text fontSize="2xl" textAlign="center" as="h1">
+                Entre com seu e-mail e senha
+              </Text>
+              <FormControl>
+                <FormLabel htmlFor="email">E-mail</FormLabel>
+                <Input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(evt) => setEmail(evt.target.value)}
+                />
+              </FormControl>
 
-          <FormControl>
-            <FormLabel htmlFor="password">Senha</FormLabel>
-            <Input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(evt) => setPassword(evt.target.value)}
-            />
-          </FormControl>
-          
-          <Button type="submit">Enviar</Button>
-        </VStack>
-      </form>
-    </Container>
+              <FormControl>
+                <FormLabel htmlFor="password">Senha</FormLabel>
+                <Input
+                  id="password"
+                  type="password"
+                  value={password}
+                  onChange={(evt) => setPassword(evt.target.value)}
+                />
+              </FormControl>
+
+              <Button colorScheme={"green"} type="submit">Enviar</Button>
+            </VStack>
+          </form>
+        </Box>
+      </Container>
+    </Center>
   );
 }
 
